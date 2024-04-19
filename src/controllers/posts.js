@@ -1,17 +1,17 @@
 const postsSvc = require('../services/posts.js')
 
 const getAllKdPosts = (req, res) => {
-    postsSvc.getKdPosts().then(
+    postsSvc.getKdPosts(req.query.term).then(
         (posts) => { 
-            res.render('pages/kadeti', {myTitle: "ВА | Кадети", myPosts: posts})
+            res.render('pages/kadeti', {myTitle: "ВА | Кадети", myPosts: posts, term: req.query.term})
         }
     )
 }
 
 const getAllStPosts = (req, res) => {
-    postsSvc.getStPosts().then(
+    postsSvc.getStPosts(req.query.term).then(
         (posts) => { 
-            res.render('pages/staresine', {myTitle: "ВА | Старешине", myPosts: posts})
+            res.render('pages/staresine', {myTitle: "ВА | Старешине", myPosts: posts, term: req.query.term})
         }
     )
 }

@@ -20,19 +20,3 @@ const copyToClipboard = () => {
         mToast.hide()
     }, 1500)
 }
-
-const search = () => {
-    let term = document.getElementById("my-search-field").value
-
-    let mainEl = $('#main-content')
-    if (term.length !== 0) {
-
-        let foundElements =$('.card-title:contains("'+ term +'")')
-        mainEl.html('')
-        foundElements.each(function() {
-            mainEl.append($(this).parent().parent())
-        })
-    } else if (term.length === 0) {
-        mainEl.html(mainContent)
-    }
-}

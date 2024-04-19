@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-12" id="main-content">
             <% myPosts.forEach((mPost) => { %>
-                <%- include('../partials/post.ejs', {postTitle: mPost.title, postContent: mPost.content})%>
+                <%- include('../partials/post.ejs', {post: mPost})%>
             <% }) %>
         </div>
       </div>

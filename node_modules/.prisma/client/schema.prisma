@@ -14,5 +14,22 @@ model Post {
   id Int @id @default(autoincrement())
   title String
   content String?
-  type Int
+  userId Int 
+  user User @relation(fields: [userId], references: [id]) 
+}
+
+model UserRole {
+  id Int @id @default(autoincrement())
+  roleName String @unique
+  users User[]
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  password String 
+  email String @unique
+  userRoleId Int 
+  role UserRole @relation(fields: [userRoleId], references: [id])
+  posts Post[]
 }
